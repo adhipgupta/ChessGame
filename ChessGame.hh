@@ -46,10 +46,10 @@ private:
 	void 	SetCurrentMove (int move) { this->currMove = move; }
 	void 	SetNextTurn(Color color) { this->nextTurn = color; } 
 	int 	SetChessBoardAndMoveHistoryByPieceType (const PieceType type, const Color color);
-	void SetChessBoardPosition (Position pos, PieceType value);
+	void 	SetChessBoardPosition (Position pos, PieceType value);
 
-	void IncrementMove();
-	int CheckIfPieceTypeIsValid (PieceType pieceType);
+	void 	IncrementMove();
+	int 	CheckIfPieceTypeIsValid (PieceType pieceType);
 
 public:
 	ChessGame ();
@@ -57,11 +57,11 @@ public:
 	~ChessGame();
 
 	/* Moving a Piece */
-	int PlayerMovePiece (const Color color, const PieceType type, const Position pos);
-	int RestoreToMove (const int move);
+	int 	PlayerMovePiece (const Color color, const PieceType type, const Position pos);
+	int 	RestoreToMove (const int move);
 
 	/*Debugging*/
-	void PrintBoardValues();
+	void 	PrintBoardValues();
 };
 
 #endif

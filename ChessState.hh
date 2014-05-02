@@ -60,7 +60,4 @@ typedef enum ChessPieceTypes{
 	INVALID_PIECE_TYPE = 33
 }PieceType;
 
-// Chess Game includes a chess board and 2 players. 
-//Compiler by default generates a copy constructror, if I havent defined one.
-
 #endif
