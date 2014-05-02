@@ -91,6 +91,13 @@ void ChessGame::IncrementMove()
 
 int ChessGame::CheckIfPieceTypeIsValid(PieceType pieceType)
 {
+	Color color = GetPieceColorFromPieceType(pieceType);
+	Player *tmpPlayer = GetPlayerFromColor(color);
+	Piece &piece = tmpPlayer->GetPieceObjectFromPieceType(pieceType);
+
+	if (piece.GetKilledStatus() == true) {
+		return INVALID_PIECE_TYPE_ERROR;
+	}
 	if ((pieceType < PAWN1) || (pieceType > ROOK2)) {
 		return INVALID_PIECE_COLOR;
 	}
@@ -176,7 +183,7 @@ int ChessGame::PlayerMovePiece (const Color color, const PieceType pieceType,
 			return INVALID_PLAYER_ERROR;
 		}
 		/*Kill the Piece of the opposite player */
-		Piece &piece = tmpPlayer->GetPieceObjectFromPieceType((PieceType) 									(value % NUM_PIECES));
+		Piece &piece = tmpPlayer->GetPieceObjectFromPieceType((PieceType) (value % NUM_PIECES));
 		/* Mark the position of the piece as Invalid */
 		piece.SetPosition(Position(INV_POS, INV_POS));
 		/* Set Killed status */
